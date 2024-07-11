@@ -15,7 +15,6 @@ def xlsx轉錄音稿(xlsx檔名):
         for tsua in dataframe.fillna('').itertuples():
             結果.append(f'{tsua.錄音編號}')
             結果.append(tsua.太魯閣語.strip())
-            結果.append(tsua.華語.strip())
             結果.append('')
     return 結果[:-1]
 
