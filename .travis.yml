@@ -31,3 +31,8 @@ jobs:
         - pip install tox
       script:
         - tox -e shellcheck
+    - name: Test
+      install:
+        - pip install tox
+      script:
+        - tox -e test
