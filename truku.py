@@ -15,7 +15,7 @@ def xlsx轉錄音稿(xlsx檔名):
         結果.append(f"【{語料名}-{篇名}】")
         for 行 in dataframe.fillna('').itertuples():
             if 錄音編號 is not None and 行.錄音編號 != 錄音編號 + 1:
-                raise ValueError(f"{篇名}裡的錄音編號{行.錄音編號}應該要是{錄音編號+1}")
+                raise ValueError(f"「{篇名}」裡的錄音編號{行.錄音編號}應該要是{錄音編號+1}")
             結果.append(f'{行.錄音編號}')
             結果.append(行.太魯閣語.strip())
             結果.append('')
