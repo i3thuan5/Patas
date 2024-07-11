@@ -40,4 +40,5 @@ jobs:
       install:
         - pip install -r requirements.txt
       script:
-        - python truku.py tests/patas/1-4｜D-TL01-005.xlsx
+        - bash integrationTestPrepration.sh
+        - python truku.py D-TL01-005.xlsx
