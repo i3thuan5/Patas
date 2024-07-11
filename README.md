@@ -7,6 +7,7 @@ Google Sheet轉錄音稿程式
 開「終端機」，輸入：
 
 ```bash
+git clone https://github.com/i3thuan5/Patas.git
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
