@@ -36,3 +36,8 @@ jobs:
         - pip install tox
       script:
         - tox -e test
+    - name: Integration Test
+      install:
+        - pip install -r requirements.txt
+      script:
+        - python truku.py tests/patas*/1-4｜D-TL01-005.xlsx 
