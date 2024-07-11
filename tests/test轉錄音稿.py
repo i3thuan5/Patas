@@ -18,3 +18,11 @@ class xlsx轉錄音稿試驗(TestCase):
             for 行 in 檔案.readlines():
                 答案.append(行.rstrip())
         self.assertEqual(結果, 答案)
+
+    def test編號錯誤(self):
+        self.maxDiff = None
+        xlsx檔名 = join(
+            abspath(dirname(__file__)), '錄音編號錯誤', 'D-TL01-005.xlsx'
+        )
+        with self.assertRaises(ValueError):
+            xlsx轉錄音稿(xlsx檔名)
