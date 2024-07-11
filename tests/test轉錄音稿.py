@@ -1,5 +1,6 @@
 from unittest import TestCase
-
+from os.path import join, dirname
+from truku import xlsx轉錄音稿
 
 class xlsx轉錄音稿試驗(TestCase):
     def test格式檢查(self):
