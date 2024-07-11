@@ -3,6 +3,7 @@ import re
 from os.path import basename
 from argparse import ArgumentParser
 
+
 def xlsx轉錄音稿(xlsx檔名):
     語料名 = 找語料名(xlsx檔名)
     結果 = []
@@ -18,8 +19,10 @@ def xlsx轉錄音稿(xlsx檔名):
             結果.append('')
     return 結果[:-1]
 
+
 def 找語料名(xlsx檔名):
     return re.search(r'D-[STP][LVTR]\d\d-\d\d\d', basename(xlsx檔名)).group(0)
+
 
 def main():
     parser = ArgumentParser(description='San-sing su-pio.')
@@ -28,6 +31,7 @@ def main():
     with open(args.xlsx檔名 + '.txt', 'wt') as 檔案:
         for 行 in xlsx轉錄音稿(args.xlsx檔名):
             print(行, file=檔案)
+
 
 if __name__ == '__main__':
     main()
