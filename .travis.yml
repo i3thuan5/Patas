@@ -33,7 +33,7 @@ jobs:
         - tox -e shellcheck
     - name: Test
       service:
-      - docker
+        - docker
       addons:
         # For the `SONARQUBE_SCANNER_PARAMS` variable
         sonarcloud:
