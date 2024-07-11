@@ -3,7 +3,7 @@ import re
 from os.path import basename
 
 def xlsx轉錄音稿(xlsx檔名):
-	xlsx語料名 = 語料名(xlsx檔名)
+	語料名 = 找語料名(xlsx檔名)
 	結果 = []
 	for 篇名, dataframe in pandas.read_excel(
 		xlsx檔名, engine='openpyxl',
@@ -17,5 +17,5 @@ def xlsx轉錄音稿(xlsx檔名):
 			結果.append('')
 	return 結果[:-1]
 
-def 語料名(xlsx檔名):
+def 找語料名(xlsx檔名):
 	return re.search(r'D-[STP][LVTR]\d\d-\d\d\d', basename(xlsx檔名)).group(0)
