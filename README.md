@@ -8,7 +8,8 @@ Google Sheet轉錄音稿程式
 
 ```bash
 git clone https://github.com/i3thuan5/Patas.git
-python -m venv venv
+cd Patas
+python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
@@ -18,6 +19,7 @@ pip install -r requirements.txt
 從Google Sheet下載錄音稿，假設下載後檔名是`1-465｜D-TL01-005.xlsx`
 
 ```bash
+cd Patas
 source venv/bin/activate
 python truku.py ~/Downloads/1-465｜D-TL01-005.xlsx
 ```
