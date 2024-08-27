@@ -13,6 +13,7 @@ def xlsx轉錄音稿(xlsx檔名):
         sheet_name=None,
     ).items():
         結果.append(f"【{語料名}-{篇名}】")
+        print("篇名", 篇名)
         for 行 in dataframe.fillna('').itertuples():
             if 錄音編號 is not None and 行.錄音編號 != 錄音編號 + 1:
                 raise ValueError(f"「{篇名}」裡的錄音編號{行.錄音編號}應該要是{錄音編號+1}")
@@ -28,7 +29,7 @@ def 找語料名(xlsx檔名):
 
 
 def main():
-    parser = ArgumentParser(description='San-sing su-pio.')
+    parser = ArgumentParser(description='產生錄音稿')
     parser.add_argument('xlsx檔名')
     args = parser.parse_args()
     with open(args.xlsx檔名 + '.txt', 'wt') as 檔案:
