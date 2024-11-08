@@ -1,6 +1,5 @@
 from unittest import TestCase
 from os.path import join, abspath, dirname
-from truku import xlsx轉錄音稿
 from truku import xlsx轉csv
 from csv import DictReader
 
