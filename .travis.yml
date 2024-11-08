@@ -54,3 +54,5 @@ jobs:
       script:
         - bash integrationTestPrepration.sh
         - python truku.py D-TL01-005.xlsx
+        - cat D-TL01-005.txt
+        - cat D-TL01-005.csv
