@@ -16,7 +16,7 @@ class xlsx轉csv試驗(TestCase):
         )
         xlsx轉csv(xlsx檔名, csv檔名)
         答案 = {
-            '錄音編號': 4,
+            '錄音編號': '4',
             '篇名': '我眺望山嶺時',
             '太魯閣語': (
                 'Paah ku laqi bilaq bitaq sayang, '
