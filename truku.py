@@ -3,6 +3,7 @@ import re
 from os.path import basename
 from argparse import ArgumentParser
 from csv import DictWriter
+from pathlib import Path
 
 
 def xlsx轉錄音稿(xlsx檔名):
@@ -51,12 +52,13 @@ def 讀xlsx資料(xlsx檔名):
 
 def main():
     parser = ArgumentParser(description='San-sing su-pio.')
-    parser.add_argument('xlsx檔名')
+    parser.add_argument('xlsx檔名', type=Path)
     args = parser.parse_args()
-    with open(args.xlsx檔名 + '.txt', 'wt') as 檔案:
+    txt檔名 = args.xlsx檔名.parent / (args.xlsx檔名.stem + '.txt')
+    with open(txt檔名, 'wt') as 檔案:
         for 行 in xlsx轉錄音稿(args.xlsx檔名):
             print(行, file=檔案)
-    csv檔名 = args.xlsx檔名 + '.csv'
+    csv檔名 = args.xlsx檔名.parent / (args.xlsx檔名.stem + '.csv')
     xlsx轉csv(args.xlsx檔名, csv檔名)
 
 
