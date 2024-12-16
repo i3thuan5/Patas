@@ -20,7 +20,7 @@ class xlsx轉錄音稿試驗(TestCase):
             abspath(dirname(__file__)),
             '格式檢查', 'D-SL07-001｜合成音稿Sample.xlsx'
         )
-        錄音稿檔名 = join(
+        答案錄音稿檔名 = join(
             abspath(dirname(__file__)),
             '格式檢查', 'D-SL07-001｜合成音稿Sample.txt'
         )
