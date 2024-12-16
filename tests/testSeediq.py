@@ -10,7 +10,7 @@ class 語料名試驗(TestCase):
             abspath(dirname(__file__)),
             '格式檢查', 'D-SL07-001｜合成音稿Sample.xlsx'
         )
-        self.assertEqual(找語料名(xlsx檔名), 'D-PV01', xlsx檔名)
+        self.assertEqual(找語料名(xlsx檔名), 'D-SL07', xlsx檔名)
 
 
 class xlsx轉錄音稿試驗(TestCase):
