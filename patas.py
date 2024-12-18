@@ -1,8 +1,6 @@
 from argparse import ArgumentParser
 from pathlib import Path
-import truku
-import pangcah
-import seediq
+from truku import xlsx轉錄音稿kari
 
 
 def main():
@@ -11,17 +9,17 @@ def main():
     parser.add_argument('xlsx檔名', type=Path)
     args = parser.parse_args()
     if args.kari == 'Truku':
-        xlsx轉錄音稿 = truku.xlsx轉錄音稿
+        kari = '太魯閣語'
     elif args.kari == 'Pangcah':
-        xlsx轉錄音稿 = pangcah.xlsx轉錄音稿
+        kari = '阿美語'
     elif args.kari == 'Seediq':
-        xlsx轉錄音稿 = seediq.xlsx轉錄音稿
+        kari = 'Tgdaya'
     else:
         raise ValueError()
 
     txt檔名 = args.xlsx檔名.parent / (args.xlsx檔名.stem + '.txt')
     with open(txt檔名, 'wt') as 檔案:
-        for 行 in xlsx轉錄音稿(args.xlsx檔名):
+        for 行 in xlsx轉錄音稿kari(args.xlsx檔名, kari):
             print(行, file=檔案)
 
     if args.kari == 'Truku':

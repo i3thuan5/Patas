@@ -1,7 +1,7 @@
 from unittest import TestCase
 from os.path import join, abspath, dirname
 from truku import 找語料名
-from pangcah import xlsx轉錄音稿
+from truku import xlsx轉錄音稿kari
 
 
 class 語料名試驗(TestCase):
@@ -24,7 +24,7 @@ class xlsx轉錄音稿試驗(TestCase):
             abspath(dirname(__file__)),
             '格式檢查', 'D-PV01｜1~353 (C-PL002)sample.txt'
         )
-        結果 = xlsx轉錄音稿(xlsx檔名)
+        結果 = xlsx轉錄音稿kari(xlsx檔名, '阿美語')
         答案 = []
         with open(答案錄音稿檔名) as 檔案:
             for 行 in 檔案.readlines():

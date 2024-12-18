@@ -4,9 +4,6 @@ from os.path import basename
 from csv import DictWriter
 
 
-def xlsx轉錄音稿(xlsx檔名):
-    return xlsx轉錄音稿kari(xlsx檔名, '太魯閣語')
-
 def xlsx轉錄音稿kari(xlsx檔名, kari):
     語料名 = 找語料名(xlsx檔名)
     結果 = []
