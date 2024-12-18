@@ -1,6 +1,4 @@
 import pandas
-import re
-from os.path import basename
 from argparse import ArgumentParser
 from pangcah import 找語料名
 
