@@ -20,10 +20,10 @@ def xlsx轉錄音稿kari(xlsx檔名, kari):
     return 結果[:-1]
 
 
-def xlsx轉csv(xlsx檔名, csv檔名):
+def xlsx轉csv(xlsx檔名, kari, csv檔名):
     with open(csv檔名, 'wt') as 檔案:
         writer = DictWriter(檔案, fieldnames=[
-            '錄音編號', '篇名', '太魯閣語', '華語',
+            '錄音編號', '篇名', kari, '華語',
         ])
         writer.writeheader()
         for 篇名, dataframe in 讀xlsx資料(xlsx檔名):

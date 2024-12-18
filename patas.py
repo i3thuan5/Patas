@@ -1,6 +1,6 @@
 from argparse import ArgumentParser
 from pathlib import Path
-from truku import xlsx轉錄音稿kari
+from truku import xlsx轉錄音稿kari, xlsx轉csv
 
 
 def main():
@@ -22,9 +22,8 @@ def main():
         for 行 in xlsx轉錄音稿kari(args.xlsx檔名, kari):
             print(行, file=檔案)
 
-    if args.kari == 'Truku':
-        csv檔名 = args.xlsx檔名.parent / (args.xlsx檔名.stem + '.csv')
-        truku.xlsx轉csv(args.xlsx檔名, csv檔名)
+    csv檔名 = args.xlsx檔名.parent / (args.xlsx檔名.stem + '.csv')
+    xlsx轉csv(args.xlsx檔名, kari, csv檔名)
 
 
 if __name__ == '__main__':
