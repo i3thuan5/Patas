@@ -36,4 +36,16 @@ source venv/bin/activate
 python patas.py Pangcah ~/Downloads/D-PV01｜1\~534\ \(C-PL002\).xlsx
 ```
 
-執行完會產生`D-PV01｜1~534 (C-PL002).xlsx.txt`檔案。
+執行完會產生`D-PV01｜1~534 (C-PL002).txt`檔案。
+
+### Kari Seediq
+
+從Google Sheet下載錄音稿，假設下載後檔名是`D-SL07-001｜合成音稿Sample.xlsx`
+
+```bash
+cd Patas
+source venv/bin/activate
+python patas.py Seediq ~/Downloads/D-SL07-001｜合成音稿Sample.xlsx
+```
+
+執行完會產生`D-SL07-001｜合成音稿Sample.txt`檔案。

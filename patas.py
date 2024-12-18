@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+from pathlib import Path
 import truku
 import pangcah
 import seediq
@@ -7,7 +8,7 @@ import seediq
 def main():
     parser = ArgumentParser(description='產生錄音稿')
     parser.add_argument('kari', choices=['Truku', 'Pangcah', 'Seediq'])
-    parser.add_argument('xlsx檔名')
+    parser.add_argument('xlsx檔名', type=Path)
     args = parser.parse_args()
     if args.kari == 'Truku':
         xlsx轉錄音稿 = truku.xlsx轉錄音稿
