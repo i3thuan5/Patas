@@ -13,7 +13,7 @@ class xlsx轉csv試驗(TestCase):
         csv檔名 = join(
             abspath(dirname(__file__)), '格式檢查', '1-4｜D-TL01-005.csv'
         )
-        xlsx轉csv(xlsx檔名, csv檔名)
+        xlsx轉csv(xlsx檔名, '太魯閣語', csv檔名)
         答案 = {
             '錄音編號': '4',
             '篇名': '我眺望山嶺時',
@@ -25,4 +25,4 @@ class xlsx轉csv試驗(TestCase):
             '華語': '從小至今，不知為何總是喜歡跳望山嶺！到底是何因由呢？',
         }
         with open(csv檔名) as 檔案:
-            self.assertIn(答案, list(DictReader(檔案)))
+            self.assertEqual(答案, list(DictReader(檔案))[3])
