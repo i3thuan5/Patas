@@ -17,9 +17,15 @@ def main():
         xlsx轉錄音稿 = seediq.xlsx轉錄音稿
     else:
         raise ValueError()
-    with open(args.xlsx檔名 + '.txt', 'wt') as 檔案:
+
+    txt檔名 = args.xlsx檔名.parent / (args.xlsx檔名.stem + '.txt')
+    with open(txt檔名, 'wt') as 檔案:
         for 行 in xlsx轉錄音稿(args.xlsx檔名):
             print(行, file=檔案)
+
+    if args.kari == 'Truku':
+        csv檔名 = args.xlsx檔名.parent / (args.xlsx檔名.stem + '.csv')
+        truku.xlsx轉csv(args.xlsx檔名, csv檔名)
 
 
 if __name__ == '__main__':
