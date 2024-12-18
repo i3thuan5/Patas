@@ -58,6 +58,7 @@ jobs:
         - cat D-TL01-005.csv
     - name: Integration Test for Coverage
       install:
+        - pip install tox
         - pip install -r requirements.txt
       script:
         - bash integrationTestPrepration.sh
