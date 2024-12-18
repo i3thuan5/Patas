@@ -31,7 +31,7 @@ def xlsx轉csv(xlsx檔名, kari, csv檔名):
                 writer.writerow({
                     '錄音編號': 行.錄音編號,
                     '篇名': 篇名.strip(),
-                    '太魯閣語': 行.太魯閣語.strip(),
+                    kari: 行.太魯閣語.strip(),
                     '華語': 行.華語.strip(),
                 })
 
