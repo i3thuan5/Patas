@@ -54,5 +54,13 @@ jobs:
       script:
         - bash integrationTestPrepration.sh
         - python patas.py Truku D-TL01-005.xlsx
+        - python patas.py Pangcah D-PV01.xlsx
+`       - python patas.py Seediq D-SL07-001.txt
+    - name: Integration Test for Results
+      install:
+        - pip install -r requirements.txt
+      script:
+        - bash integrationTestPrepration.sh
+        - python patas.py Truku D-TL01-005.xlsx
         - cat D-TL01-005.txt
         - cat D-TL01-005.csv
