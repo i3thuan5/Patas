@@ -21,7 +21,7 @@ pip install -r requirements.txt
 ```bash
 cd Patas
 source venv/bin/activate
-python truku.py ~/Downloads/1-465｜D-TL01-005.xlsx
+python patas.py Truku ~/Downloads/1-465｜D-TL01-005.xlsx
 ```
 
 執行完會產生`1-465｜D-TL01-005.xlsx.txt`檔案。
@@ -33,7 +33,7 @@ python truku.py ~/Downloads/1-465｜D-TL01-005.xlsx
 ```bash
 cd Patas
 source venv/bin/activate
-python pangcah.py ~/Downloads/D-PV01｜1\~534\ \(C-PL002\).xlsx
+python patas.py Pangcah ~/Downloads/D-PV01｜1\~534\ \(C-PL002\).xlsx
 ```
 
 執行完會產生`D-PV01｜1~534 (C-PL002).xlsx.txt`檔案。
