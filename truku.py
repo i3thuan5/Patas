@@ -5,6 +5,9 @@ from csv import DictWriter
 
 
 def xlsx轉錄音稿(xlsx檔名):
+    return xlsx轉錄音稿kari(xlsx檔名, '太魯閣語')
+
+def xlsx轉錄音稿kari(xlsx檔名, kari):
     語料名 = 找語料名(xlsx檔名)
     結果 = []
     錄音編號 = None
@@ -14,7 +17,7 @@ def xlsx轉錄音稿(xlsx檔名):
             if 錄音編號 is not None and 行.錄音編號 != 錄音編號 + 1:
                 raise ValueError(f"「{篇名}」裡的錄音編號{行.錄音編號}應該要是{錄音編號+1}")
             結果.append(f'{行.錄音編號}')
-            結果.append(行.太魯閣語.strip())
+            結果.append(getattr(行, kari).strip())
             結果.append('')
             錄音編號 = 行.錄音編號
     return 結果[:-1]
@@ -37,7 +40,7 @@ def xlsx轉csv(xlsx檔名, csv檔名):
 
 
 def 找語料名(xlsx檔名):
-    return re.search(r'D-[STP][LVTR]\d\d-\d\d\d', basename(xlsx檔名)).group(0)
+    return re.search(r'D-[STP][LVTR]\d\d(-\d\d\d)?', basename(xlsx檔名)).group(0)
 
 
 def 讀xlsx資料(xlsx檔名):

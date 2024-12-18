@@ -1,6 +1,6 @@
 from unittest import TestCase
 from os.path import join, abspath, dirname
-from pangcah import 找語料名
+from truku import 找語料名
 from seediq import xlsx轉錄音稿
 
 
@@ -10,7 +10,7 @@ class 語料名試驗(TestCase):
             abspath(dirname(__file__)),
             '格式檢查', 'D-SL07-001｜合成音稿Sample.xlsx'
         )
-        self.assertEqual(找語料名(xlsx檔名), 'D-SL07', xlsx檔名)
+        self.assertEqual(找語料名(xlsx檔名), 'D-SL07-001', xlsx檔名)
 
 
 class xlsx轉錄音稿試驗(TestCase):

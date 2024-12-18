@@ -1,6 +1,6 @@
 from unittest import TestCase
 from os.path import join, abspath, dirname
-from pangcah import 找語料名
+from truku import 找語料名
 from pangcah import xlsx轉錄音稿
 
 
