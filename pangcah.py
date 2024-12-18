@@ -1,7 +1,6 @@
 import pandas
 import re
 from os.path import basename
-from argparse import ArgumentParser
 
 
 def xlsx轉錄音稿(xlsx檔名):
@@ -26,16 +25,3 @@ def xlsx轉錄音稿(xlsx檔名):
 
 def 找語料名(xlsx檔名):
     return re.search(r'D-[STP][LVTR]\d\d', basename(xlsx檔名)).group(0)
-
-
-def main():
-    parser = ArgumentParser(description='產生錄音稿')
-    parser.add_argument('xlsx檔名')
-    args = parser.parse_args()
-    with open(args.xlsx檔名 + '.txt', 'wt') as 檔案:
-        for 行 in xlsx轉錄音稿(args.xlsx檔名):
-            print(行, file=檔案)
-
-
-if __name__ == '__main__':
-    main()

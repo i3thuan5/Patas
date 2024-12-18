@@ -1,5 +1,4 @@
 import pandas
-from argparse import ArgumentParser
 from pangcah import 找語料名
 
 
@@ -21,16 +20,3 @@ def xlsx轉錄音稿(xlsx檔名):
             結果.append('')
             錄音編號 = 行.錄音編號
     return 結果[:-1]
-
-
-def main():
-    parser = ArgumentParser(description='產生錄音稿')
-    parser.add_argument('xlsx檔名')
-    args = parser.parse_args()
-    with open(args.xlsx檔名 + '.txt', 'wt') as 檔案:
-        for 行 in xlsx轉錄音稿(args.xlsx檔名):
-            print(行, file=檔案)
-
-
-if __name__ == '__main__':
-    main()
