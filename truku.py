@@ -9,6 +9,7 @@ def xlsx轉錄音稿kari(xlsx檔名, kari):
     結果 = []
     錄音編號 = None
     for 篇名, dataframe in 讀xlsx資料(xlsx檔名):
+        print(篇名)
         結果.append(f"【{語料名}-{篇名}】")
         for 行 in dataframe:
             if 錄音編號 is not None and 行.錄音編號 != 錄音編號 + 1:
@@ -27,6 +28,7 @@ def xlsx轉csv(xlsx檔名, kari, csv檔名):
         ])
         writer.writeheader()
         for 篇名, dataframe in 讀xlsx資料(xlsx檔名):
+            print(篇名)
             for 行 in dataframe:
                 writer.writerow({
                     '錄音編號': 行.錄音編號,
