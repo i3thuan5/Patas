@@ -14,7 +14,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## 轉錄音稿
+## 轉Truku錄音稿
 
 從Google Sheet下載錄音稿，假設下載後檔名是`1-465｜D-TL01-005.xlsx`
 
