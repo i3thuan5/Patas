@@ -1,7 +1,7 @@
 from unittest import TestCase
 from os.path import join, abspath, dirname
-from truku import 找語料名
-from truku import xlsx轉錄音稿kari
+from kari import 找語料名
+from kari import xlsx轉錄音稿kari
 
 
 class 語料名試驗(TestCase):

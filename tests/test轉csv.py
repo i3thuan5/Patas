@@ -1,7 +1,7 @@
 from unittest import TestCase
 from os.path import join, abspath, dirname
-from truku import xlsx轉csv
 from csv import DictReader
+from kari import xlsx轉csv
 
 
 class xlsx轉csv試驗(TestCase):

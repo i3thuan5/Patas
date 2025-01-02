@@ -1,6 +1,6 @@
 from unittest import TestCase
 from os.path import join, abspath, dirname
-from truku import xlsx轉錄音稿kari
+from kari import xlsx轉錄音稿kari
 
 
 class xlsx轉錄音稿試驗(TestCase):

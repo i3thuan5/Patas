@@ -1,6 +1,6 @@
 from argparse import ArgumentParser
 from pathlib import Path
-from truku import xlsx轉錄音稿kari, xlsx轉csv
+from kari import xlsx轉錄音稿kari, xlsx轉csv
 
 
 def main():
