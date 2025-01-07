@@ -32,6 +32,11 @@ jobs:
       script:
         - tox -e shellcheck
     - name: Test
+      install:
+        - pip install tox
+      script:
+        - tox -e test
+    - name: Integration Test
       service:
         - docker
       addons:
@@ -41,18 +46,13 @@ jobs:
       install:
         - pip install tox
       script:
-        - tox -e test
+        - bash integrationTestPrepration.sh
+        - tox -e integrationTest
+        - cat D-TL01-005.txt
+        - cat D-TL01-005.csv
         - >
           docker run --rm
           -e SONARQUBE_SCANNER_PARAMS
           -e SONAR_TOKEN="${SONAR_TOKEN}"
           -v "`pwd`:/usr/src"
           sonarsource/sonar-scanner-cli
-    - name: Integration Test
-      install:
-        - pip install -r requirements.txt
-      script:
-        - bash integrationTestPrepration.sh
-        - python truku.py D-TL01-005.xlsx
-        - cat D-TL01-005.txt
-        - cat D-TL01-005.csv

@@ -1,45 +1,46 @@
 import pandas
 import re
 from os.path import basename
-from argparse import ArgumentParser
 from csv import DictWriter
-from pathlib import Path
 
 
-def xlsx轉錄音稿(xlsx檔名):
+def xlsx轉錄音稿kari(xlsx檔名, kari):
     語料名 = 找語料名(xlsx檔名)
     結果 = []
     錄音編號 = None
     for 篇名, dataframe in 讀xlsx資料(xlsx檔名):
+        print(篇名)
         結果.append(f"【{語料名}-{篇名}】")
         for 行 in dataframe:
             if 錄音編號 is not None and 行.錄音編號 != 錄音編號 + 1:
                 raise ValueError(f"「{篇名}」裡的錄音編號{行.錄音編號}應該要是{錄音編號+1}")
             結果.append(f'{行.錄音編號}')
-            結果.append(行.太魯閣語.strip())
+            結果.append(getattr(行, kari).strip())
             結果.append('')
             錄音編號 = 行.錄音編號
     return 結果[:-1]
 
 
-def xlsx轉csv(xlsx檔名, csv檔名):
+def xlsx轉csv(xlsx檔名, kari, 音檔檔名規則, csv檔名):
     with open(csv檔名, 'wt') as 檔案:
         writer = DictWriter(檔案, fieldnames=[
-            '錄音編號', '篇名', '太魯閣語', '華語',
+            '音檔檔名', '錄音編號', '篇名', kari, '華語',
         ])
         writer.writeheader()
         for 篇名, dataframe in 讀xlsx資料(xlsx檔名):
+            print(篇名)
             for 行 in dataframe:
                 writer.writerow({
+                    '音檔檔名': '{}-{:04}.wav'.format(音檔檔名規則, 行.錄音編號),
                     '錄音編號': 行.錄音編號,
                     '篇名': 篇名.strip(),
-                    '太魯閣語': 行.太魯閣語.strip(),
+                    kari: getattr(行, kari).strip(),
                     '華語': 行.華語.strip(),
                 })
 
 
 def 找語料名(xlsx檔名):
-    return re.search(r'D-[STP][LVTR]\d\d-\d\d\d', basename(xlsx檔名)).group(0)
+    return re.search(r'D-[STP][LVTR]\d\d(-\d\d\d)?', basename(xlsx檔名)).group(0)
 
 
 def 讀xlsx資料(xlsx檔名):
@@ -48,19 +49,3 @@ def 讀xlsx資料(xlsx檔名):
         sheet_name=None,
     ).items():
         yield 篇名, dataframe.fillna('').itertuples()
-
-
-def main():
-    parser = ArgumentParser(description='San-sing su-pio.')
-    parser.add_argument('xlsx檔名', type=Path)
-    args = parser.parse_args()
-    txt檔名 = args.xlsx檔名.parent / (args.xlsx檔名.stem + '.txt')
-    with open(txt檔名, 'wt') as 檔案:
-        for 行 in xlsx轉錄音稿(args.xlsx檔名):
-            print(行, file=檔案)
-    csv檔名 = args.xlsx檔名.parent / (args.xlsx檔名.stem + '.csv')
-    xlsx轉csv(args.xlsx檔名, csv檔名)
-
-
-if __name__ == '__main__':
-    main()
