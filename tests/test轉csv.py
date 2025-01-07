@@ -13,7 +13,7 @@ class xlsx轉csv試驗(TestCase):
         csv檔名 = join(
             abspath(dirname(__file__)), '格式檢查', '1-4｜D-TL01-005.csv'
         )
-        xlsx轉csv(xlsx檔名, '太魯閣語', csv檔名)
+        xlsx轉csv(xlsx檔名, '太魯閣語', 'E-TV001', csv檔名)
         答案 = {
             '音檔檔名': 'E-TV001-0004.wav',
             '錄音編號': '4',

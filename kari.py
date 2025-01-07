@@ -21,16 +21,17 @@ def xlsx轉錄音稿kari(xlsx檔名, kari):
     return 結果[:-1]
 
 
-def xlsx轉csv(xlsx檔名, kari, csv檔名):
+def xlsx轉csv(xlsx檔名, kari, 音檔檔名規則, csv檔名):
     with open(csv檔名, 'wt') as 檔案:
         writer = DictWriter(檔案, fieldnames=[
-            '錄音編號', '篇名', kari, '華語',
+            '音檔檔名', '錄音編號', '篇名', kari, '華語',
         ])
         writer.writeheader()
         for 篇名, dataframe in 讀xlsx資料(xlsx檔名):
             print(篇名)
             for 行 in dataframe:
                 writer.writerow({
+                    '音檔檔名': '{}-{:04}.wav'.format(音檔檔名規則, 行.錄音編號),
                     '錄音編號': 行.錄音編號,
                     '篇名': 篇名.strip(),
                     kari: getattr(行, kari).strip(),
