@@ -10,10 +10,13 @@ def main():
     args = parser.parse_args()
     if args.kari == 'Truku':
         kari = '太魯閣語'
+        音檔檔名規則 = 'E-TV001'
     elif args.kari == 'Pangcah':
         kari = '阿美語'
+        音檔檔名規則 = 'E-PV001'
     elif args.kari == 'Seediq':
         kari = 'Tgdaya'
+        音檔檔名規則 = 'E-SV001'
     else:
         raise ValueError()
 
@@ -23,7 +26,7 @@ def main():
             print(行, file=檔案)
 
     csv檔名 = args.xlsx檔名.parent / (args.xlsx檔名.stem + '.csv')
-    xlsx轉csv(args.xlsx檔名, kari, csv檔名)
+    xlsx轉csv(args.xlsx檔名, kari, 音檔檔名規則, csv檔名)
 
 
 if __name__ == '__main__':
